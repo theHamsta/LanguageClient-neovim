@@ -155,7 +155,9 @@ function! s:set_virtual_texts(buf_id, ns_id, line_start, line_end, virtual_texts
     call nvim_buf_clear_namespace(a:buf_id, a:ns_id, a:line_start, a:line_end)
 
     for vt in a:virtual_texts
-        call nvim_buf_set_virtual_text(a:buf_id, a:ns_id, vt['line'], [[vt['text'], vt['hl_group']]], {})
+        if line('.') !=#  vt['line'] + 1
+            call nvim_buf_set_virtual_text(a:buf_id, a:ns_id, vt['line'], [[vt['text'], vt['hl_group']]], {})
+        endif
     endfor
 endfunction
 
