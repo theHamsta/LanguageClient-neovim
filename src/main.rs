@@ -49,6 +49,7 @@ mod sign;
 mod viewport;
 mod vim;
 mod vimext;
+mod rust_analyser;
 
 mod rpcclient;
 
